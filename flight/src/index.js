@@ -1,12 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import ReactDom from 'react-dom'
+import {Provider} from 'react-redux'
+import {applyMiddleware,createStore,combineReducers} from 'redux'
+import Passenger from './components/passenger/passenger'
+import PassengerReducer from './components/passenger/passengerReduces'
+import promise from 'redux-promise';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const reducers = combineReducers({
+    passenger : PassengerReducer,
+    name: PassengerReducer,
+    gender: PassengerReducer
+})
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+ReactDom.render((
+    <Provider store={applyMiddleware(promise)(createStore)(reducers)}>
+        <Passenger />
+    </Provider>
+    ), document.getElementById('root'));   
