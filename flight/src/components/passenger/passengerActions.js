@@ -1,40 +1,68 @@
 import axios from 'axios';
 
-const base_url = 'http://localhost:4000/passenger'
+const base_url = 'http://localhost:8002/passenger'
 
-export function changeName(e){
-    console.log("changed:",e.target.value)
+
+export function changeName(e) {
+    console.log("changed:", e.target.value)
     return {
         type: 'CHANGE_NAME',
         payload: e.target.value
     }
 }
 
-export function changeGender(e){
+export function changeGender(e) {
     return {
         type: 'CHANGE_GENDER',
         payload: e.target.value
     }
 }
 
-export const getPassenger = () => {
-    const request = axios.get(base_url)
-    return { 
+export const addGetData = (data) => {
+    console.log(data)
+    return {
         type: 'GET_PASSENGER',
-        payload: request
+        payload: data
+    }
+};
+
+export const deletePassenger = (id) => {
+    return dispatch => {
+        axios.delete(base_url + '/' + id).then(
+            resp => {
+                dispatch(getPassenger())
+            }
+        )
+
+    }
+
+}
+
+export function getPassenger(){
+    return dispatch => {
+        axios.get(base_url).then(
+            resp => {
+                dispatch(addGetData(resp.data)
+                )
+            }
+        )
+
     }
 
 }
 
 export const addPassenger = (data) => {
-    console.log(data)
-    const request = axios.post(base_url, {
-        name: data.name,
-        gender: data.gender
-      })
-    return { 
-        type: 'ADD_PASSENGER',
-        payload: request
+    return dispatch => {
+        axios.post(base_url,{
+            name: data.name,
+            gender: data.gender
+        }).then(
+            resp => {
+                dispatch(addGetData(resp.data)
+                )
+            }
+        )
+
     }
 
 }

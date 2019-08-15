@@ -2,6 +2,8 @@ const INITIAL_STATE = {passenger:[],name:'',gender:''}
 
 export default function(state=INITIAL_STATE,action){
     switch(action.type) {
+        case 'DELETE_PASSENGER':
+            return {...state, passenger: action.payload}
         case 'CHANGE_GENDER':
             return {...state, gender: action.payload}
         case 'CHANGE_NAME':

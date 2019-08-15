@@ -1,21 +1,34 @@
-import React from 'react';
 import ReactDom from 'react-dom'
-import {Provider} from 'react-redux'
-import {applyMiddleware,createStore,combineReducers} from 'redux'
+import React from 'react';
+import { Provider } from 'react-redux'
+import { applyMiddleware, createStore, combineReducers } from 'redux'
 import Passenger from './components/passenger/passenger'
+import Flight from './components/flight/flight'
 import PassengerReducer from './components/passenger/passengerReduces'
-import promise from 'redux-promise';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import FlightReducer from './components/flight/flightReduces'
+import thunk from 'redux-thunk';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 const reducers = combineReducers({
-    passenger : PassengerReducer,
+    passenger: PassengerReducer,
     name: PassengerReducer,
-    gender: PassengerReducer
+    gender: PassengerReducer,
+    //Flight
+    flight: FlightReducer,
+    number: FlightReducer,
+    origin: FlightReducer,
+    destination: FlightReducer,
+    departamenturetime: FlightReducer,
+    arrivaltime: FlightReducer
+
 })
+
+const store = createStore(reducers, applyMiddleware(thunk))
 
 
 ReactDom.render((
-    <Provider store={applyMiddleware(promise)(createStore)(reducers)}>
+    <Provider store={store}>
         <Passenger />
-    </Provider>
-    ), document.getElementById('root'));   
+        <Flight />
+    </Provider>)
+    , document.getElementById('root'));   

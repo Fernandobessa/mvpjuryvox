@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { addPassenger,changeName,changeGender } from './passengerActions'
+import { addPassenger,changeName,changeGender,deletePassenger } from './passengerActions'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import PassengerTable from './passengerTable'
 
@@ -22,11 +22,14 @@ class Passenger extends Component {
                             <Form.Group controlId="gender">
                                 <Form.Control onChange={this.props.changeGender} type="text" placeholder="Enter your gender" />
                             </Form.Group>
-                            <Button onClick={()=>this.props.addPassenger(this.props)} variant="primary" type="submit">
-                                Submit
-                            </Button>
+                    
                         </Form>
                     </Col>
+                </Row>
+                <Row>   
+                <Button onClick={()=>this.props.addPassenger(this.props)} variant="primary" type="submit">
+                                Submit
+                            </Button>
                 </Row>
             </Container>
         )
@@ -43,7 +46,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ addPassenger,changeName,changeGender}, dispatch)
+    return bindActionCreators({ addPassenger,changeName,changeGender,deletePassenger}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Passenger)

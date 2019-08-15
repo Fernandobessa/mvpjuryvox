@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getPassenger } from '../passenger/passengerActions'
+import { getPassenger,deletePassenger } from '../passenger/passengerActions'
 import { Button, Table } from 'react-bootstrap';
+import { FaTrashAlt } from "react-icons/fa";
 
 
 class PassengerTable extends Component {
@@ -11,7 +12,7 @@ class PassengerTable extends Component {
     }
     render() {
         return (
-            this.props.passenger.data ?
+            this.props.passenger && this.props.passenger.length > 0? 
                 <div>
                     <Table responsive>
                         <thead>
@@ -21,11 +22,11 @@ class PassengerTable extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                        {this.props.passenger.data.map((item) =>
+                        {this.props.passenger.map((item) =>
                             <tr key={item.id}>
                             <td>{item.name}</td>
                             <td>{item.gender}</td>
-                            <td>trash</td>
+                            <td><Button onClick={()=>this.props.deletePassenger(item.id)} variant="outline-primary"><FaTrashAlt></FaTrashAlt></Button></td>
                             </tr>
                         )}
                         </tbody>
@@ -46,7 +47,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getPassenger }, dispatch)
+    return bindActionCreators({ getPassenger,deletePassenger }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PassengerTable)

@@ -1,20 +1,29 @@
 {
   "flight": [
     {
-      "id": 0,
-      "number": 0,
-      "origin": "",
-      "destination": "",
-      "departuretime": "",
-      "arrivaltime": ""
+      "number": "001",
+      "origin": "Brasilia",
+      "destination": "Rio de Janeiro",
+      "departamenturetime": "3 horas",
+      "arrivaltime": "10:45",
+      "id": 1
     }
   ],
   "passenger": [
     {
-      "name": "Carlos",
-      "nationalid": "",
+      "name": "Fernando",
       "gender": "Male",
-      "id": 0
+      "id": 1
+    },
+    {
+      "name": "Fernando",
+      "gender": "Male",
+      "id": 2
+    },
+    {
+      "name": "batata",
+      "gender": "batata",
+      "id": 3
     }
   ],
   "ticket": [
