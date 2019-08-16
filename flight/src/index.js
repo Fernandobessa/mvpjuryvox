@@ -2,12 +2,13 @@ import ReactDom from 'react-dom'
 import React from 'react';
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore, combineReducers } from 'redux'
-import Passenger from './components/passenger/passenger'
-import Flight from './components/flight/flight'
+import Panel from './components/panel/panel'
 import PassengerReducer from './components/passenger/passengerReduces'
 import FlightReducer from './components/flight/flightReduces'
+import PanelReducer from './components/panel/panelReduces'
 import thunk from 'redux-thunk';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+
 
 const reducers = combineReducers({
     passenger: PassengerReducer,
@@ -19,16 +20,19 @@ const reducers = combineReducers({
     origin: FlightReducer,
     destination: FlightReducer,
     departamenturetime: FlightReducer,
-    arrivaltime: FlightReducer
+    arrivaltime: FlightReducer,
+    //Panel
+    flagPassenger: PanelReducer,
+    flagFlight: PanelReducer
 
 })
 
 const store = createStore(reducers, applyMiddleware(thunk))
 
 
+
 ReactDom.render((
     <Provider store={store}>
-        <Passenger />
-        <Flight />
+        <Panel/>
     </Provider>)
     , document.getElementById('root'));   
