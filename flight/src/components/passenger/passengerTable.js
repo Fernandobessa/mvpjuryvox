@@ -11,10 +11,12 @@ class PassengerTable extends Component {
         this.props.getPassenger()
     }
     render() {
+        console.log(this.props.passenger)
         return (
             this.props.passenger && this.props.passenger.length > 0? 
                 <div>
                     <Table responsive>
+                        {console.log(this.props.passenger)}
                         <thead>
                             <tr>
                                 <th>Name</th>

@@ -48,13 +48,13 @@ class Flight extends Component {
                             <Form.Control onChange={this.props.changeArrivalTime} type="text" placeholder="Enter your gender" />
                             </Form.Group>       
                     </Col>
-                </Row>
+                </Row> 
+                </Form>
                 <Row>
                     <Button onClick={()=>this.props.addFlight(this.props)} variant="primary" type="submit">
                                 Submit
                     </Button>
-                </Row>   
-                </Form>
+                </Row>  
             </Container>
         )
     }

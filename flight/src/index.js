@@ -5,12 +5,14 @@ import { applyMiddleware, createStore, combineReducers } from 'redux'
 import Panel from './components/panel/panel'
 import PassengerReducer from './components/passenger/passengerReduces'
 import FlightReducer from './components/flight/flightReduces'
+import TicketReducer from './components/ticket/ticketReduces'
 import PanelReducer from './components/panel/panelReduces'
 import thunk from 'redux-thunk';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 
 const reducers = combineReducers({
+    //Passenger
     passenger: PassengerReducer,
     name: PassengerReducer,
     gender: PassengerReducer,
@@ -23,7 +25,15 @@ const reducers = combineReducers({
     arrivaltime: FlightReducer,
     //Panel
     flagPassenger: PanelReducer,
-    flagFlight: PanelReducer
+    flagFlight: PanelReducer,
+    flagTicket: PanelReducer,
+    //Ticket
+    ticket: TicketReducer,
+    passengerid: TicketReducer,
+    flightid: TicketReducer,
+    seatnumber: TicketReducer,
+    passengers: TicketReducer,
+    flights: TicketReducer
 
 })
 

@@ -82,7 +82,7 @@ export const addFlight = (data) => {
             arrivaltime: data.arrivaltime
         }).then(
             resp => {
-                dispatch(addGetData(resp.data)
+                dispatch(getFlight()
                 )
             }
         )

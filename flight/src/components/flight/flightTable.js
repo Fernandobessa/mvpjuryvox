@@ -10,6 +10,7 @@ class FlightTable extends Component {
     UNSAFE_componentWillMount() {
         this.props.getFlight()
     }
+    
     render() {
         return (
             this.props.flight && this.props.flight.length > 0? 

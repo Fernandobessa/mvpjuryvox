@@ -58,7 +58,7 @@ export const addPassenger = (data) => {
             gender: data.gender
         }).then(
             resp => {
-                dispatch(addGetData(resp.data)
+                dispatch(getPassenger()
                 )
             }
         )
