@@ -15,6 +15,7 @@ class PassengerTable extends Component {
         return (
             this.props.passenger && this.props.passenger.length > 0? 
                 <div>
+                    <hr class="mt-1 mb-5"></hr>
                     <Table responsive>
                         {console.log(this.props.passenger)}
                         <thead>
@@ -33,6 +34,7 @@ class PassengerTable extends Component {
                         )}
                         </tbody>
                     </Table>
+                    <hr class="mt-4 mb-5"></hr>
                 </div>
                 : null
 

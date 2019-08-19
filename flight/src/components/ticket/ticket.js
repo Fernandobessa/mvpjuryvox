@@ -1,71 +1,71 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { addTicket, changeName, changeGender, deleteTicket } from './ticketActions'
-import {getFlight} from './../flight/flightActions'
-import{getPassenger} from './../passenger/passengerActions'
-import { Container, Row, Col, Form, Button,InputGroup,DropdownButton,Dropdown,FormControl } from 'react-bootstrap';
+import { addTicket, deleteTicket, changeFlight, changePassenger, changSeatNumber } from './ticketActions'
+import { getFlight } from './../flight/flightActions'
+import { getPassenger } from './../passenger/passengerActions'
+import { Container, Row, Col, Form, Button, InputGroup, DropdownButton, Dropdown, FormControl } from 'react-bootstrap';
 import TicketTable from './ticketTable'
-import Flight from './../flight/flight'
+import './Style.css';
 
 
 
 class Ticket extends Component {
     handleChange(event) {
         console.log(event.target.value)
-      }
-    
+    }
+
     render() {
         return (
             <Container>
                 <TicketTable />
-                        <Row>
-                        <Col xs={6}>
-                            <Form.Group controlId="name">
-                                {console.log(this.props)}
-                                <Form.Control onChange={this.props.changeName} type="text" placeholder="Enter your SeatNumber" />
-                            </Form.Group>
-                        </Col>           
-                        <Col xs={3}>
-                            <InputGroup className="mb-3">
-                                <DropdownButton 
-                                    as={InputGroup.Prepend}
-                                    variant="outline-secondary"
-                                    title="Select Flight"
-                                    id="input-group-dropdown-1"
-                                >
-                                
-                                {this.props.flights ? 
-                                  this.props.flights.map((item) => {
-                                      return(
-                                    <Dropdown.Item href="#">{item.number}</Dropdown.Item>
-                                      )}):null
-                                }
-                
-                                </DropdownButton>     
-                            </InputGroup>
-                            </Col>
-                            <Col xs={3}>
-                            <Form.Group controlId="exampleForm.ControlSelect1">
-                            <Form.Control 
-                                onChange={(e)=>this.handleChange(e)}
-                                as="select">
-                            <option value="" >Select the passenger</option>
-                                {this.props.passengers ? 
-                                  this.props.passengers.map((item) => {
-                                      return(
-                                        <option value={item.id}>{item.name}</option>
-                                      )}):null
-                                }
-                                    </Form.Control>
-                                </Form.Group>
-                            </Col>
-                                
-                </Row>
                 <Row>
-                    <Button onClick={() => this.props.addTicket(this.props)} variant="primary" type="submit">
-                        Submit
+                    <Col xs={6}>
+                        <Form.Group controlId="name">
+                            {console.log(this.props)}
+                            <Form.Control onChange={(e) => this.props.changSeatNumber(e)} type="text" placeholder="Enter your SeatNumber" />
+                        </Form.Group>
+                    </Col>
+                    <Col xs={3}>
+                        <Form.Group controlId="exampleForm.ControlSelect1">
+                            <Form.Control
+                                onChange={(e) => this.props.changeFlight(e)}
+                                as="select">
+                                <option value="" >Select the Flight number</option>
+                                {this.props.flights ?
+                                    this.props.flights.map((item) => {
+                                        return (
+                                            <option key={item.id} value={item.id}>{item.number}</option>
+                                        )
+                                    }) : null
+                                }
+                            </Form.Control>
+                        </Form.Group>
+                    </Col>
+                    <Col xs={3}>
+                        <Form.Group controlId="exampleForm.ControlSelect1">
+                            <Form.Control
+                                onChange={(e) => this.props.changePassenger(e)}
+                                as="select">
+                                <option value="" >Select the passenger</option>
+                                {this.props.passengers ?
+                                    this.props.passengers.map((item) => {
+                                        return (
+                                            <option key={item.id} value={item.id}>{item.name}</option>
+                                        )
+                                    }) : null
+                                }
+                            </Form.Control>
+                        </Form.Group>
+                    </Col>
+
+                </Row>
+                <Row className="RowBtnSubmit">
+                    <Col md="auto">
+                        <Button  className="BtnSubmit" onClick={() => this.props.addTicket(this.props)} variant="primary" type="submit">
+                            Submit
                             </Button>
+                    </Col>
                 </Row>
             </Container>
         )
@@ -79,7 +79,9 @@ function mapStateToProps(state) {
         passengerid: state.passengerid.passengerid,
         flightid: state.flightid.flightid,
         passengers: state.passenger.passenger,
-        flights: state.flight.flight
+        flights: state.flight.flight,
+        input_flight: state.input_flight.input_flight,
+        input_passenger: state.input_passenger.input_passenger,
 
 
 
@@ -87,7 +89,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ addTicket,changeName, changeGender, deleteTicket,getFlight,getPassenger }, dispatch)
+    return bindActionCreators({ addTicket, deleteTicket, getFlight, getPassenger, changeFlight, changePassenger, changSeatNumber }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Ticket)

@@ -23,30 +23,9 @@
       "departamenturetime": "3213",
       "arrivaltime": "213213",
       "id": 7
-    },
-    {
-      "number": "3123",
-      "origin": "312321",
-      "destination": "3123",
-      "departamenturetime": "3123",
-      "arrivaltime": "3213",
-      "id": 8
-    },
-    {
-      "number": "33",
-      "origin": "33",
-      "destination": "33",
-      "departamenturetime": "22",
-      "arrivaltime": "33",
-      "id": 9
     }
   ],
   "passenger": [
-    {
-      "name": "Fernando",
-      "gender": "Male",
-      "id": 2
-    },
     {
       "name": "Claudia",
       "gender": "Fame",
@@ -60,10 +39,22 @@
   ],
   "ticket": [
     {
-      "id": 0,
-      "flightID ": 0,
-      "SeatNumber": 0,
-      "passengerID": 0
+      "SeatNumber": "102022",
+      "flightID": "6",
+      "passengerID": "5",
+      "id": 2
+    },
+    {
+      "SeatNumber": "32133123",
+      "flightID": "5",
+      "passengerID": "4",
+      "id": 3
+    },
+    {
+      "SeatNumber": "102230",
+      "flightID": "5",
+      "passengerID": "4",
+      "id": 4
     }
   ]
 }

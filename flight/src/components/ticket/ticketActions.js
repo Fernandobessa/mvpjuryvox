@@ -4,13 +4,31 @@ const base_url = 'http://localhost:8002/'
 
 
 
-export function SeatNumber(e) {
+export function changSeatNumber(e) {
     console.log("changed:", e.target.value)
     return {
         type: 'CHANGE_SEATNUMBER',
         payload: e.target.value
     }
 }
+
+
+export function changeFlight(e) {
+    console.log("changed:", e.target.value)
+    return {
+        type: 'CHANGE_FLIGHT',
+        payload: e.target.value
+    }
+}
+
+export function changePassenger(e) {
+    console.log("changed:", e.target.value)
+    return {
+        type: 'CHANGE_PASSENGER',
+        payload: e.target.value
+    }
+}
+
 export const getPassengerData = (data) => {
     console.log(data)
     return {
@@ -75,19 +93,32 @@ export function getFlightById(id){
 export const addTicketData = (data) => {
     console.log(data.name)
     return {
-        type: 'GET_FLIGHT',
+        type: 'GET_TICKET',
         payload: data
     }
 }
 export const addTicket = (data) => {
     return dispatch => {
         axios.post(base_url + 'ticket',{
-            name: data.name,
-            gender: data.gender
+            SeatNumber: data.seatnumber,
+            flightID: data.input_flight,
+            passengerID: data.input_passenger
         }).then(
             resp => {
-                dispatch(addTicketData(resp.data)
+                dispatch(getTicket()
                 )
+            }
+        )
+
+    }
+
+}
+
+export const deleteTicket = (id) => {
+    return dispatch => {
+        axios.delete(base_url + 'ticket/' + id).then(
+            resp => {
+                dispatch(getTicket())
             }
         )
 

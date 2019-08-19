@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getTicket, getFlight, getPassengerById,getAllPassenger,getAllFlights } from '../ticket/ticketActions'
+import { getTicket, getFlight, getPassengerById,deleteTicket } from '../ticket/ticketActions'
 import { Button, Table } from 'react-bootstrap';
 import { FaTrashAlt } from "react-icons/fa";
 
@@ -14,6 +14,7 @@ class TicketTable extends Component {
         return (
             this.props.ticket && this.props.ticket.length > 0 ?
                 <div>
+                    <hr class="mt-1 mb-5"></hr>
                     <Table responsive>
                         <thead>
                             <tr>
@@ -43,6 +44,7 @@ class TicketTable extends Component {
                             )}
                         </tbody>
                     </Table>
+                    <hr class="mt-4 mb-5"></hr>
                 </div>
                 : null
 
@@ -63,7 +65,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getTicket, getFlight,getPassengerById,getAllPassenger,getAllFlights}, dispatch)
+    return bindActionCreators({ getTicket, getFlight,getPassengerById,deleteTicket}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TicketTable)

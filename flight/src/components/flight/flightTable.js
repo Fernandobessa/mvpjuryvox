@@ -15,6 +15,7 @@ class FlightTable extends Component {
         return (
             this.props.flight && this.props.flight.length > 0? 
                 <div>
+                    <hr class="mt-1 mb-5"></hr>
                     <Table responsive>
                         <thead>
                             <tr>
@@ -38,6 +39,7 @@ class FlightTable extends Component {
                         )}
                         </tbody>
                     </Table>
+                    <hr class="mt-4 mb-5"></hr>
                 </div>
                 : null
 

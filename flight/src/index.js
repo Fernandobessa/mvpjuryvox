@@ -33,7 +33,9 @@ const reducers = combineReducers({
     flightid: TicketReducer,
     seatnumber: TicketReducer,
     passengers: TicketReducer,
-    flights: TicketReducer
+    flights: TicketReducer,
+    input_flight: TicketReducer,
+    input_passenger: TicketReducer
 
 })
 
