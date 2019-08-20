@@ -101,6 +101,11 @@ export function getAlertPassenger(){
                 axios.get(base_url + 'passenger/' + item.id + '/ticket').then(resp => {
                         if(resp.data.length >= 3){
                             dispatch(getDataAlert(item.name))
+                        }
+                        else{
+                            if(resp.data.length < 3){
+                                dispatch(getDataAlert(null))
+                            }  
                         }                    
                 })
 
