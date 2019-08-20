@@ -69,6 +69,7 @@ export const addTicket = (data) => {
             resp => {
                 dispatch(getTicket()
                 )
+                dispatch(getAlertPassenger())
             }
         )
 
@@ -77,13 +78,41 @@ export const addTicket = (data) => {
 }
 
 export const deleteTicket = (id) => {
+    getAlertPassenger()
     return dispatch => {
         axios.delete(base_url + 'ticket/' + id).then(
             resp => {
                 dispatch(getTicket())
+                dispatch(getAlertPassenger())
             }
         )
 
     }
 
 }
+
+export function getAlertPassenger(){
+    console.log("entrou aqui")
+
+    return dispatch => {
+        axios.get(base_url + 'passenger').then(
+            resp => {
+               resp.data.forEach(item => {
+                axios.get(base_url + 'passenger/' + item.id + '/ticket').then(resp => {
+                        if(resp.data.length >= 3){
+                            dispatch(getDataAlert(item.name))
+                        }                    
+                })
+
+               });
+            })
+} 
+
+}
+export const getDataAlert = (data) => {
+    console.log(data)
+    return {
+        type: 'GET_ALERT',
+        payload: data
+    }
+};

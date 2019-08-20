@@ -15,6 +15,8 @@ export default function (state = INITIAL_STATE, action) {
             return { ...state, input_flight: action.payload }
         case 'GET_FLIGHT_ID':
             return { ...state, flightid: action.payload }
+        case 'GET_ALERT':
+            return { ...state, alert: action.payload }
         default:
             return state
     }

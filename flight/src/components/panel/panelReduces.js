@@ -10,6 +10,7 @@ export default function (state = INITIAL_STATE, action) {
             return { ...state, flagTicket: action.payload }
         case 'GET_ALERT':
             return { ...state, alert: action.payload }
+            
         default:
             return state
     }

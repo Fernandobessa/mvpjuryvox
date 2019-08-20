@@ -70,25 +70,6 @@
     {
       "SeatNumber": "2",
       "flightData": {
-        "number": "00002",
-        "origin": "Brasil",
-        "destination": "Argentina",
-        "departamenturetime": "12:35 am",
-        "arrivaltime": "1:15 hours",
-        "id": 9
-      },
-      "flightId": 9,
-      "passengerData": {
-        "name": "Rafael",
-        "gender": "Male",
-        "id": 6
-      },
-      "passengerId": 6,
-      "id": 3
-    },
-    {
-      "SeatNumber": "2",
-      "flightData": {
         "number": "00001",
         "origin": "Brasil",
         "destination": "Alemanhã",
@@ -106,7 +87,7 @@
       "id": 4
     },
     {
-      "SeatNumber": "2",
+      "SeatNumber": "123",
       "flightData": {
         "number": "00002",
         "origin": "Brasil",
@@ -123,6 +104,25 @@
       },
       "passengerId": 6,
       "id": 5
+    },
+    {
+      "SeatNumber": "Bruno",
+      "flightData": {
+        "number": "00002",
+        "origin": "Brasil",
+        "destination": "Argentina",
+        "departamenturetime": "12:35 am",
+        "arrivaltime": "1:15 hours",
+        "id": 9
+      },
+      "flightId": 9,
+      "passengerData": {
+        "name": "Rafael",
+        "gender": "Male",
+        "id": 6
+      },
+      "passengerId": 6,
+      "id": 6
     }
   ]
 }
