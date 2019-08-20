@@ -27,6 +27,7 @@ const reducers = combineReducers({
     flagPassenger: PanelReducer,
     flagFlight: PanelReducer,
     flagTicket: PanelReducer,
+    alert: PanelReducer,
     //Ticket
     ticket: TicketReducer,
     passengerid: TicketReducer,
@@ -35,7 +36,8 @@ const reducers = combineReducers({
     passengers: TicketReducer,
     flights: TicketReducer,
     input_flight: TicketReducer,
-    input_passenger: TicketReducer
+    input_passenger: TicketReducer,
+
 
 })
 

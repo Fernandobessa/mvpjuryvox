@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { addTicket, deleteTicket, changeFlight, changePassenger, changSeatNumber } from './ticketActions'
+import { getFlightById,addTicket, deleteTicket, changeFlight, changePassenger, changSeatNumber } from './ticketActions'
 import { getFlight } from './../flight/flightActions'
 import { getPassenger } from './../passenger/passengerActions'
 import { Container, Row, Col, Form, Button, InputGroup, DropdownButton, Dropdown, FormControl } from 'react-bootstrap';
@@ -11,10 +11,6 @@ import './Style.css';
 
 
 class Ticket extends Component {
-    handleChange(event) {
-        console.log(event.target.value)
-    }
-
     render() {
         return (
             <Container>
@@ -33,9 +29,10 @@ class Ticket extends Component {
                                 as="select">
                                 <option value="" >Select the Flight number</option>
                                 {this.props.flights ?
-                                    this.props.flights.map((item) => {
+                                
+                                    this.props.flights.map((item) => {                                        
                                         return (
-                                            <option key={item.id} value={item.id}>{item.number}</option>
+                                            <option key={item.id} value={JSON.stringify(item)}>{item.number}</option>
                                         )
                                     }) : null
                                 }
@@ -51,7 +48,7 @@ class Ticket extends Component {
                                 {this.props.passengers ?
                                     this.props.passengers.map((item) => {
                                         return (
-                                            <option key={item.id} value={item.id}>{item.name}</option>
+                                            <option key={item.id} value={JSON.stringify(item)}>{item.name} </option>
                                         )
                                     }) : null
                                 }
@@ -77,19 +74,16 @@ function mapStateToProps(state) {
         ticket: state.ticket.ticket,
         seatnumber: state.seatnumber.seatnumber,
         passengerid: state.passengerid.passengerid,
-        flightid: state.flightid.flightid,
         passengers: state.passenger.passenger,
         flights: state.flight.flight,
         input_flight: state.input_flight.input_flight,
         input_passenger: state.input_passenger.input_passenger,
-
-
-
+        flightid: state.flightid.flightid
     }
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ addTicket, deleteTicket, getFlight, getPassenger, changeFlight, changePassenger, changSeatNumber }, dispatch)
+    return bindActionCreators({ addTicket,getFlightById, deleteTicket, getFlight, getPassenger, changeFlight, changePassenger, changSeatNumber }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Ticket)

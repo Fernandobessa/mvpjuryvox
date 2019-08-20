@@ -23,3 +23,14 @@
 .BtnTop{ 
    color: rgb(17, 0, 78) !important ;
 }
+
+.RowAlert{
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 10px;
+    border-top-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+.BtnAlert{
+    color: rgb(245, 8, 8) !important ;
+}

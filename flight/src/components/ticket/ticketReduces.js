@@ -1,6 +1,7 @@
-const INITIAL_STATE = { ticket: [], passengerid: null, flightid: null,input_flight:null,input_passenger:null }
+const INITIAL_STATE = { ticket: [], passengerid: null, flightid: null, input_flight: null, input_passenger: null }
 
 export default function (state = INITIAL_STATE, action) {
+    console.log(action.type)
     switch (action.type) {
         case 'GET_TICKET':
             return { ...state, ticket: action.payload }

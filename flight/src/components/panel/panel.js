@@ -2,20 +2,30 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import ToggleDisplay from 'react-toggle-display';
-import { clickPassenger, clickFlight, clickTicket} from './panelAction'
+import { clickPassenger, clickFlight, clickTicket,getAlertPassenger} from './panelAction'
 import Passenger from './../passenger/passenger'
 import Flight from './../flight/flight'
 import Ticket from './../ticket/ticket'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './Style.css';
-import { FaList } from "react-icons/fa";
+import { FaList,FaExclamationCircle } from "react-icons/fa";
 
 
 class Panel extends Component {
+    UNSAFE_componentWillMount() {
+        this.props.getAlertPassenger()
+    }
     render() {
         return (
             <div>
                 <Container>
+                    {this.props.alert ?
+                     <Row className="RowAlert">
+                         <Col xs={2}></Col>
+                        <Col xs={2}></Col>
+                        <Col className="RowBtnTop" xs={8}><Button variant="light" className="BtnAlert"><FaExclamationCircle/> O Usuário {this.props.alert} tem mais que 3 tickets</Button> </Col>
+                     </Row>
+                    :null}
                     <Row className="RowContainer">
                         <Col xs={2}></Col>
                         <Col className="TextRowContainer" xs={8}>Passenger</Col>
@@ -53,12 +63,13 @@ function mapStateToProps(state) {
     return {
         flagPassenger: state.flagPassenger.flagPassenger,
         flagFlight: state.flagFlight.flagFlight,
-        flagTicket: state.flagTicket.flagTicket
+        flagTicket: state.flagTicket.flagTicket,
+        alert: state.alert.alert
     }
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ clickPassenger, clickFlight,clickTicket }, dispatch)
+    return bindActionCreators({ clickPassenger, clickFlight,clickTicket,getAlertPassenger }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Panel)
