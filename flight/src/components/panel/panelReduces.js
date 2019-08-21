@@ -1,4 +1,4 @@
-const INITIAL_STATE = {alert:null, flagPassenger: false, flagFlight: false, flagTicket: false }
+const INITIAL_STATE = { alert: [], flagPassenger: false, flagFlight: false, flagTicket: false }
 
 export default function (state = INITIAL_STATE, action) {
     switch (action.type) {
@@ -9,8 +9,11 @@ export default function (state = INITIAL_STATE, action) {
         case 'CLICK_TICKET':
             return { ...state, flagTicket: action.payload }
         case 'GET_ALERT':
-            return { ...state, alert: action.payload }
-            
+            state.alert.indexOf(action.payload) > -1 ? 
+             alert = state.alert 
+            : alert = state.alert.concat(action.payload) 
+            return { ...state, alert } 
+
         default:
             return state
     }

@@ -19,12 +19,15 @@ class Panel extends Component {
         return (
             <div>
                 <Container>
-                    {this.props.alert ?
+                    {console.log(this.props.alert)}
+                    {this.props.alert.length >=1 ? 
+                      this.props.alert.map((item) =>
                      <Row className="RowAlert">
                          <Col xs={2}></Col>
                         <Col xs={2}></Col>
-                        <Col className="RowBtnTop" xs={8}><Button variant="light" className="BtnAlert"><FaExclamationCircle/> O Usuário {this.props.alert} tem mais que 3 tickets</Button> </Col>
+                        <Col className="RowBtnTop" xs={8}><Button variant="light" className="BtnAlert"><FaExclamationCircle/> O Usuário {item} tem mais que 3 tickets</Button> </Col>
                      </Row>
+                     )
                     :null}
                     <Row className="RowContainer">
                         <Col xs={2}></Col>

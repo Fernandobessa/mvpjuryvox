@@ -78,18 +78,18 @@ export const addTicket = (data) => {
 }
 
 export const deleteTicket = (id) => {
-    getAlertPassenger()
     return dispatch => {
         axios.delete(base_url + 'ticket/' + id).then(
             resp => {
-                dispatch(getTicket())
                 dispatch(getAlertPassenger())
+                dispatch(getTicket())
             }
         )
 
     }
 
 }
+
 
 export function getAlertPassenger(){
     console.log("entrou aqui")
@@ -101,12 +101,7 @@ export function getAlertPassenger(){
                 axios.get(base_url + 'passenger/' + item.id + '/ticket').then(resp => {
                         if(resp.data.length >= 3){
                             dispatch(getDataAlert(item.name))
-                        }
-                        else{
-                            if(resp.data.length < 3){
-                                dispatch(getDataAlert(null))
-                            }  
-                        }                    
+                        }                
                 })
 
                });

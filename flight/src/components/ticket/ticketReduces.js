@@ -1,4 +1,4 @@
-const INITIAL_STATE = { ticket: [], passengerid: null, flightid: null, input_flight: null, input_passenger: null }
+const INITIAL_STATE = { alert:[],ticket: [], passengerid: null, flightid: null, input_flight: null, input_passenger: null }
 
 export default function (state = INITIAL_STATE, action) {
     console.log(action.type)
@@ -16,7 +16,10 @@ export default function (state = INITIAL_STATE, action) {
         case 'GET_FLIGHT_ID':
             return { ...state, flightid: action.payload }
         case 'GET_ALERT':
-            return { ...state, alert: action.payload }
+            state.alert.indexOf(action.payload) > -1 ? 
+                alert = state.alert 
+                : alert = state.alert.concat(action.payload)    
+            return { ...state, alert } 
         default:
             return state
     }

@@ -49,7 +49,7 @@
   ],
   "ticket": [
     {
-      "SeatNumber": "2",
+      "SeatNumber": "Fernando",
       "flightData": {
         "number": "00002",
         "origin": "Brasil",
@@ -65,26 +65,64 @@
         "id": 6
       },
       "passengerId": 6,
-      "id": 1
+      "id": 33
     },
     {
-      "SeatNumber": "2",
+      "SeatNumber": "Fernando",
       "flightData": {
-        "number": "00001",
+        "number": "00002",
         "origin": "Brasil",
-        "destination": "Alemanhã",
-        "departamenturetime": "13:30 pm",
-        "arrivaltime": "5:30 hours",
-        "id": 11
+        "destination": "Argentina",
+        "departamenturetime": "12:35 am",
+        "arrivaltime": "1:15 hours",
+        "id": 9
       },
-      "flightId": 11,
+      "flightId": 9,
+      "passengerData": {
+        "name": "Rafael",
+        "gender": "Male",
+        "id": 6
+      },
+      "passengerId": 6,
+      "id": 34
+    },
+    {
+      "SeatNumber": "Fernando",
+      "flightData": {
+        "number": "00002",
+        "origin": "Brasil",
+        "destination": "Argentina",
+        "departamenturetime": "12:35 am",
+        "arrivaltime": "1:15 hours",
+        "id": 9
+      },
+      "flightId": 9,
       "passengerData": {
         "name": "Fernando ",
         "gender": "Male",
         "id": 7
       },
       "passengerId": 7,
-      "id": 4
+      "id": 35
+    },
+    {
+      "SeatNumber": "Fernando",
+      "flightData": {
+        "number": "00002",
+        "origin": "Brasil",
+        "destination": "Argentina",
+        "departamenturetime": "12:35 am",
+        "arrivaltime": "1:15 hours",
+        "id": 9
+      },
+      "flightId": 9,
+      "passengerData": {
+        "name": "Fernando ",
+        "gender": "Male",
+        "id": 7
+      },
+      "passengerId": 7,
+      "id": 36
     },
     {
       "SeatNumber": "123",
@@ -103,7 +141,26 @@
         "id": 6
       },
       "passengerId": 6,
-      "id": 5
+      "id": 37
+    },
+    {
+      "SeatNumber": "123",
+      "flightData": {
+        "number": "00002",
+        "origin": "Brasil",
+        "destination": "Argentina",
+        "departamenturetime": "12:35 am",
+        "arrivaltime": "1:15 hours",
+        "id": 9
+      },
+      "flightId": 9,
+      "passengerData": {
+        "name": "Fernando ",
+        "gender": "Male",
+        "id": 7
+      },
+      "passengerId": 7,
+      "id": 38
     }
   ]
 }
