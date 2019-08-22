@@ -41,7 +41,9 @@ export function getTicket(){
         axios.get(base_url + 'ticket').then(
             resp => {
                 dispatch(getTicketData(resp.data))
-            })
+            }).catch(error => {
+                console.log(error)
+            });
 } 
 }
 
@@ -68,7 +70,9 @@ export const addTicket = (data) => {
                 )
                 dispatch(getAlertPassenger())
             }
-        )
+        ).catch(error => {
+            console.log(error)
+        });
 
     }
 
@@ -81,7 +85,9 @@ export const deleteTicket = (id) => {
                 dispatch(getAlertPassenger())
                 dispatch(getTicket())
             }
-        )
+        ).catch(error => {
+            console.log(error)
+        });
 
     }
 
@@ -132,12 +138,18 @@ export function getAlertPassenger(){
                                 
                                 
                             }
-                        })
+                        }).catch(error => {
+                            console.log(error)
+                        });
                     })
-                })
+                }).catch(error => {
+                    console.log(error)
+                });
 
                });
-            })
+            }).catch(error => {
+                console.log(error)
+            });
 } 
 
 }

@@ -30,7 +30,9 @@ export const deletePassenger = (id) => {
             resp => {
                 dispatch(getPassenger())
             }
-        )
+        ).catch(error => {
+            console.log(error)
+        });
 
     }
 
@@ -43,7 +45,9 @@ export function getPassenger(){
                 dispatch(addGetData(resp.data)
                 )
             }
-        )
+        ).catch(error => {
+            console.log(error)
+        });
 
     }
 
@@ -59,7 +63,9 @@ export const addPassenger = (data) => {
                 dispatch(getPassenger()
                 )
             }
-        )
+        ).catch(error => {
+            console.log(error)
+        });
 
     }
 

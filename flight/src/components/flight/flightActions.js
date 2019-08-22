@@ -53,7 +53,9 @@ export const deleteFlight = (id) => {
             resp => {
                 dispatch(getFlight())
             }
-        )
+        ).catch(error => {
+            console.log(error)
+        });
 
     }
 
@@ -66,7 +68,9 @@ export function getFlight(){
                 dispatch(addGetData(resp.data)
                 )
             }
-        )
+        ).catch(error => {
+            console.log(error)
+        });
 
     }
 
@@ -85,7 +89,9 @@ export const addFlight = (data) => {
                 dispatch(getFlight()
                 )
             }
-        )
+        ).catch(error => {
+            console.log(error)
+        });
 
     }
 
