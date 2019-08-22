@@ -4,7 +4,6 @@ const base_url = 'http://localhost:8002/passenger'
 
 
 export function changeName(e) {
-    console.log("changed:", e.target.value)
     return {
         type: 'CHANGE_NAME',
         payload: e.target.value
@@ -19,7 +18,6 @@ export function changeGender(e) {
 }
 
 export const addGetData = (data) => {
-    console.log(data)
     return {
         type: 'GET_PASSENGER',
         payload: data
